@@ -53,8 +53,7 @@ function App() {
   function handleSearchBarChanged(e: React.ChangeEvent<HTMLInputElement>) {
     setCity(e.target.value);
   }
-  function handleAddButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
+  function handleAddButtonClick() {
     setTrackedCities(trackedCities.concat([city]));
     setCity("");
   }
@@ -64,8 +63,7 @@ function App() {
     <div className={`App ${STATIC_API_RESPONSE.current.is_day ? "AppLight":"AppDark"}`}>
       <h1>Weather App</h1>
       <form className="SearchBar">
-        <SearchBar onChanged={handleSearchBarChanged}/>
-        <button type="submit" onClick={handleAddButtonClick}>+</button>
+        <SearchBar onChanged={handleSearchBarChanged} handleButtonClick={handleAddButtonClick}/>
       </form>
       <div className="CitiesList">
         {cities}
