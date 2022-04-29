@@ -28,7 +28,11 @@ html, body {
 
 .CitiesList {
     display: flex;
-    column-gap: normal;
+    padding-top: 1rem;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    justify-content: space-evenly;
+    align-content: center;
     flex-wrap: wrap;
     overflow-y: auto;
 }

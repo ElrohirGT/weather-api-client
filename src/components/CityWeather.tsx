@@ -13,9 +13,7 @@ export function CityWeather(props: CityWeatherProps) {
 
   useEffect(()=>{
     const fetchWeather = async () => GetCurrentWeather(props.city);
-    fetchWeather()
-      .then(setCityWeather);
-      // .catch(console.error);
+    fetchWeather().then(setCityWeather);
   }, [ props.city ]);
 
   if (cityWeather.current === undefined
@@ -32,7 +30,6 @@ export function CityWeather(props: CityWeatherProps) {
       />
       <h1>{cityWeather.location.name}</h1>
       <h2>{cityWeather.location.country}</h2>
-      <h2>Timezone: {cityWeather.location.tz_id}</h2>
       <Clock timezone={cityWeather.location.tz_id}/>
     </div>
   );
