@@ -25,11 +25,12 @@ export function CityWeather(props: CityWeatherProps) {
     <Fragment>
       <img
         className="CityWeatherIcon"
-        title="Weather Icon"
+        title={cityWeather.current.condition.text}
         src={cityWeather.current.condition.icon}
         />
       <h1>{cityWeather.location.name}</h1>
       <h2>{cityWeather.location.country}</h2>
+      <h3>{cityWeather.current.condition.text}</h3>
       <Clock timezone={cityWeather.location.tz_id}/>
     </Fragment>
   );

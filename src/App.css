@@ -70,6 +70,6 @@ html, body {
 .AppDark {
     background: #1a1a1a;
 }
-.AppDark h1, .AppDark h2 {
+.AppDark h1, .AppDark h2, .AppDark h3{
     color: #ffffff;
 }
