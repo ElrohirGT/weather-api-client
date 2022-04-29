@@ -1,11 +1,10 @@
+import React, { useState } from "react";
 import "./App.css";
-import { CityCurrentTimeApiResponse } from "./models/APIModels";
+import { CityWeather } from "./components/CityWeather";
+import { SearchBar } from "./components/SearchBar";
+import { CityCurrentWeatherApiResponse } from "./models/APIModels";
 
-type AppProps = {
-  forecast: String;
-};
-
-const STATIC_API_RESPONSE: CityCurrentTimeApiResponse = {
+const STATIC_API_RESPONSE: CityCurrentWeatherApiResponse = {
   location: {
     name: "Guatemala City",
     region: "Guatemala",
@@ -47,8 +46,33 @@ const STATIC_API_RESPONSE: CityCurrentTimeApiResponse = {
   },
 };
 
-function App(props: AppProps) {
-  return <div className="App"></div>;
+function App() {
+  const [city, setCity] = useState("");
+  const [trackedCities, setTrackedCities] = useState([] as string[]);
+
+  function handleSearchBarChanged(e: React.ChangeEvent<HTMLInputElement>) {
+    setCity(e.target.value);
+  }
+  function handleAddButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    setTrackedCities(trackedCities.concat([city]));
+    setCity("");
+  }
+
+  const cities = trackedCities.map((c)=> <CityWeather city={c}/>);
+  return(
+    <div className={`App ${STATIC_API_RESPONSE.current.is_day ? "AppLight":"AppDark"}`}>
+      <h1>Weather App</h1>
+      <div className="SearchBar">
+        <SearchBar onChanged={handleSearchBarChanged}/>
+        <button onClick={handleAddButtonClick}>+</button>
+      </div>
+      <div className="CitiesList">
+        {cities}
+        <CityWeather city={city}/>
+      </div>
+    </div>
+  );
 }
 
 export default App;

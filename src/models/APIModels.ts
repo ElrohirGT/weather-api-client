@@ -1,47 +1,47 @@
-export type CityCurrentTimeApiResponse = {
+export type CityCurrentWeatherApiResponse = {
     location: LocationApiResponse,
     current: WeatherApiResponse
 }
 
 export type LocationApiResponse = {
-    name: String,
-    region: String,
-    country: String,
-    lat: Number,
-    lon: Number,
-    tz_id: String,
-    localtime_epoch: Number,
+    name: string,
+    region: string,
+    country: string,
+    lat: number,
+    lon: number,
+    tz_id: string,
+    localtime_epoch: number,
     localtime: Date
 }
 
 export type WeatherApiResponse = {
-    last_updated_epoch: Number,
+    last_updated_epoch: number,
     last_updated: Date,
-    temp_c: Number,
-    temp_f: Number,
-    is_day: Boolean,
+    temp_c: number,
+    temp_f: number,
+    is_day: boolean,
     condition: WeatherConditionApiResponse,
-    wind_mph: Number,
-    wind_kph: Number,
-    wind_degree: Number,
-    wind_dir: String,
-    pressure_mb: Number,
-    pressure_in: Number,
-    precip_mm: Number,
-    precip_in: Number,
-    humidity: Number,
-    cloud: Number,
-    feelslike_c: Number,
-    feelslike_f: Number,
-    vis_km: Number,
-    vis_miles: Number,
-    uv: Number,
-    gust_mph: Number,
-    gust_kph: Number
+    wind_mph: number,
+    wind_kph: number,
+    wind_degree: number,
+    wind_dir: string,
+    pressure_mb: number,
+    pressure_in: number,
+    precip_mm: number,
+    precip_in: number,
+    humidity: number,
+    cloud: number,
+    feelslike_c: number,
+    feelslike_f: number,
+    vis_km: number,
+    vis_miles: number,
+    uv: number,
+    gust_mph: number,
+    gust_kph: number
 }
 
 export type WeatherConditionApiResponse = {
-    text: String,
-    icon: String,
-    code: Number
+    text: string,
+    icon: string,
+    code: number
 }

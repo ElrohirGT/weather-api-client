@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+#root {
+    height: 100%;
+}
+
+.App {
+    margin:0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+}
+
+.CitiesList {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.AppDark {
+    background: #1a1a1a;
+}
+.AppDark h1, .AppDark h2 {
+    color: #ffffff;
+}
