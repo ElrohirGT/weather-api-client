@@ -1,7 +1,7 @@
 import "./CityWeather.css";
 import { CityCurrentWeatherApiResponse } from "../models/APIModels";
 import { Clock } from "./Clock";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { GetCurrentWeather } from "../api/weather";
 
 type CityWeatherProps = {
@@ -13,7 +13,7 @@ export function CityWeather(props: CityWeatherProps) {
 
   useEffect(()=>{
     const fetchWeather = async () => GetCurrentWeather(props.city);
-    fetchWeather().then(setCityWeather);
+    fetchWeather().then(setCityWeather).catch();
   }, [ props.city ]);
 
   if (cityWeather.current === undefined
@@ -22,15 +22,15 @@ export function CityWeather(props: CityWeatherProps) {
     return null;
   }
   return (
-    <div className="city_weather_container">
+    <Fragment>
       <img
-        className="city_weather_icon"
+        className="CityWeatherIcon"
         title="Weather Icon"
         src={cityWeather.current.condition.icon}
-      />
+        />
       <h1>{cityWeather.location.name}</h1>
       <h2>{cityWeather.location.country}</h2>
       <Clock timezone={cityWeather.location.tz_id}/>
-    </div>
+    </Fragment>
   );
 }

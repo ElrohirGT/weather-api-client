@@ -57,17 +57,45 @@ function App() {
     setTrackedCities(trackedCities.concat([city]));
     setCity("");
   }
-
-  const cities = trackedCities.map((c)=> <CityWeather city={c}/>);
-  return(
-    <div className={`App ${STATIC_API_RESPONSE.current.is_day ? "AppLight":"AppDark"}`}>
+  function removeCity(i: number) {
+    let otherSlice = [] as string[];
+    if (trackedCities.length > i + 1) {
+      otherSlice = trackedCities.slice(i + 1);
+    }
+    setTrackedCities(trackedCities.slice(0, i).concat(otherSlice));
+  }
+  const currentCity =
+    city === "" ? null
+    : (
+      <div className="CityWeatherContainer">
+        <CityWeather city={city} />
+      </div>
+    );
+  const cities = trackedCities.map((c, i) => {
+    return (
+      <div className="CityWeatherContainer">
+        <button
+          className="RemoveCityWeatherButton"
+          onClick={() => removeCity(i)}
+        >
+          X
+        </button>
+        <CityWeather city={c} />
+      </div>
+    );
+  });
+  return (
+    <div className="App AppDark">
       <h1>Weather App</h1>
       <form className="SearchBar">
-        <SearchBar onChanged={handleSearchBarChanged} handleButtonClick={handleAddButtonClick}/>
+        <SearchBar
+          onChanged={handleSearchBarChanged}
+          handleButtonClick={handleAddButtonClick}
+        />
       </form>
       <div className="CitiesList">
         {cities}
-        <CityWeather city={city}/>
+        {currentCity}
       </div>
     </div>
   );
