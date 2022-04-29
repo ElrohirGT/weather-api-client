@@ -24,7 +24,7 @@ export type WeatherApiResponse = {
     wind_mph: Number,
     wind_kph: Number,
     wind_degree: Number,
-    wind_dir: Number,
+    wind_dir: String,
     pressure_mb: Number,
     pressure_in: Number,
     precip_mm: Number,
