@@ -63,10 +63,10 @@ function App() {
   return(
     <div className={`App ${STATIC_API_RESPONSE.current.is_day ? "AppLight":"AppDark"}`}>
       <h1>Weather App</h1>
-      <div className="SearchBar">
+      <form className="SearchBar">
         <SearchBar onChanged={handleSearchBarChanged}/>
-        <button onClick={handleAddButtonClick}>+</button>
-      </div>
+        <button type="submit" onClick={handleAddButtonClick}>+</button>
+      </form>
       <div className="CitiesList">
         {cities}
         <CityWeather city={city}/>

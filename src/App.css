@@ -28,8 +28,9 @@ html, body {
 
 .CitiesList {
     display: flex;
+    column-gap: normal;
     flex-wrap: wrap;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .AppDark {

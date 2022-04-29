@@ -1,9 +1,8 @@
 .city_weather_container {
-    padding: 5rem;
+    height: fit-content;
     display: flex;
     margin: auto;
     flex-direction: column;
-    width: 15%;
     row-gap: 0;
 }
 
@@ -13,6 +12,6 @@
 }
 
 .city_weather_icon {
-    width: 50%;
+    width: 40%;
     margin: auto;
 }
